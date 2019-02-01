@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
 import SmurfApp from './SmurfApp';
+import './App.css';
 
 class App extends Component {
   render() {

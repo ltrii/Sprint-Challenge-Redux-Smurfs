@@ -47,7 +47,7 @@ export default class AddSmurf extends Component {
   render() {
     return (
       <div className="addSmurfDiv">
-        <Button color="primary" onClick={this.toggle}>Add Friend</Button>
+        <Button color="primary" onClick={this.toggle}>Add Smurf</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
         <Form onSubmit={e => this.handleSubmit(e)}>
           <FormGroup>

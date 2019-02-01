@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import { Badge, Spinner } from 'reactstrap';
 import { connect } from 'react-redux';
 import { fetchingSmurfs, addingSmurf, deletingSmurf, updatingSmurf } from '../actions';
@@ -33,8 +32,10 @@ class SmurfApp extends Component {
 
   render() {
     return (
-      <div className="App">
-      <div>{(this.props.isFetching ? <Spinner color="success" /> : <p></p>)}
+      <div>
+        <div class="header">
+          <h1>Smurfs<Badge className="headBadge" pill href="https://redux.js.org/" color="secondary">Redux</Badge></h1><div>{(this.props.isFetching ? <Spinner color="success" /> : <p></p>)}
+          </div>
         </div>
         <AddSmurf {...this.props} />
         <Smurfs {...this.props} smurf={this.props.smurfs} />
