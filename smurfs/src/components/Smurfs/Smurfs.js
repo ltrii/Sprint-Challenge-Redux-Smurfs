@@ -8,7 +8,7 @@ const Smurfs = props => {
   return (
     <div className="smurfsHold">
         {props.smurfs.map((smurf, index) => (
-            <Smurf smurf={smurf} key={smurf.id} deletingFriend={props.deletingSmurf} updatingFriend={props.updatingSmurf} />
+            <Smurf smurf={smurf} key={smurf.id} deletingSmurf={props.deletingSmurf} updatingSmurf={props.updatingSmurf} />
         ))}
   </div>
   )

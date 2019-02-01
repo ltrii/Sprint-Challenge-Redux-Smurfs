@@ -1,4 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import EditSmurf from './EditSmurf';
+
+import { Button, Card, Collapse, CardText, CardTitle, CardBody } from 'reactstrap';
+
 
 export default class Smurf extends Component {
   constructor(props){
@@ -27,9 +31,34 @@ export default class Smurf extends Component {
 
   render() {
     return (
-        <div>
-            SMURF!
-        </div>
+        <Card className="smurfHold">
+        <CardBody>
+          <CardTitle>
+            <h3>{this.props.smurf.name}</h3>
+          </CardTitle>
+          <CardText>
+            <p>Height: {this.props.smurf.height}</p>
+            <p>Age: {this.props.smurf.age}</p>
+          </CardText>
+          {/* <Collapse isOpen={this.state.collapse}>
+            <div class="moreInfo">
+              {this.displayAddInfo()}
+            </div>
+          </Collapse> */}
+          <div class="smurfButtons">
+          {/* <Button color="info" onClick={this.toggleInfo} >More Info</Button> */}
+            <div class="smurfButtonsEdDe">
+              <EditSmurf 
+                id={this.props.smurf.id} 
+                name={this.props.smurf.name}
+                height={this.props.smurf.height}
+                age={this.props.smurf.age} 
+                updatingSmurf={this.props.updatingSmurf} />
+              <Button color="danger" onClick={this.handleDelete}>Delete</Button>
+            </div>
+          </div>
+        </CardBody>
+      </Card>
     )
   }
 }

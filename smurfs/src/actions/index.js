@@ -55,15 +55,14 @@ export const deletingSmurf = (id) => dispatch => {
         .catch(err => console.log(err));
 }
 
-export const updatingSmurf = (newName, newAge, newEmail, newInfo, id) => dispatch => {
+export const updatingSmurf = (newName, newAge, newHeight, id) => dispatch => {
     dispatch({ type: UPDATING_SMURF });
     Axios
         .put(`http://localhost:3333/smurfs/${id}`, {
             id: id,
             name: newName,
-            email: newEmail,
-            age: newAge,
-            additional: newInfo
+            height: newHeight,
+            age: newAge
         })
         .then(res => {
             dispatch({ type: SMURF_UPDATED, payload: res.data })

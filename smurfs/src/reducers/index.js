@@ -45,14 +45,14 @@ const rootReducer = (state = initialState, action) => {
       case ADDING_SMURF:
           return {
               ...state,
-              smurfs: action.payload,
-              isSaving: false,
+              isSaving: true,
               error: ''
           };
       case SMURF_ADDED:
           return {
               ...state,
-              isSaving: true,
+              smurfs: action.payload,
+              isSaving: false,
               error: ''
           };
       case UPDATING_SMURF:
