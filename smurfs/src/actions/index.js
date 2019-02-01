@@ -29,7 +29,7 @@ export const fetchingSmurfs = () => dispatch => {
     dispatch({ type: FETCHING_SMURFS });
     Axios
         .get(
-            'http://localhost:5000/api/smurfs/'
+            'http://localhost:3333/smurfs/'
         )
         .then(res => dispatch({ type: SMURFS_FETCHED, payload: res.data }))
         .catch(err => console.log('error fetching'))
@@ -38,7 +38,7 @@ export const fetchingSmurfs = () => dispatch => {
 export const addingSmurf = (smurf) => dispatch => {
     dispatch({ type: ADDING_SMURF });
     Axios
-        .post(`http://localhost:5000/api/smurfs/`, smurf)
+        .post(`http://localhost:3333/smurfs/`, smurf)
         .then(res => {
             dispatch({ type: SMURF_ADDED, payload: res.data });
         })
@@ -48,7 +48,7 @@ export const addingSmurf = (smurf) => dispatch => {
 export const deletingSmurf = (id) => dispatch => {
     dispatch({ type: DELETING_SMURF });
     Axios
-        .delete(`http://localhost:5000/api/smurfs/${id}`)
+        .delete(`http://localhost:3333/smurfs/${id}`)
         .then(res => {
             dispatch({ type: SMURF_DELETED, payload: res.data }, {params: {id: id}});
         })
@@ -58,7 +58,7 @@ export const deletingSmurf = (id) => dispatch => {
 export const updatingSmurf = (newName, newAge, newEmail, newInfo, id) => dispatch => {
     dispatch({ type: UPDATING_SMURF });
     Axios
-        .put(`http://localhost:5000/api/smurfs/${id}`, {
+        .put(`http://localhost:3333/smurfs/${id}`, {
             id: id,
             name: newName,
             email: newEmail,

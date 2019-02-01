@@ -3,7 +3,8 @@ import './App.css';
 import { connect } from 'react-redux';
 import { fetchingSmurfs, addingSmurf, deletingSmurf, updatingSmurf } from '../actions';
 
-
+import AddSmurf from './Smurfs/AddSmurf';
+import Smurfs from './Smurfs/Smurfs';
 
 class App extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
-
+        <Smurfs {...this.props} />
       </div>
     );
   }
@@ -41,11 +42,11 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    smurfs: state.rootReducer.smurfs,
-    isFetchingSmurfs: state.rootReducer.fetchingSmurfs,
-    isFetching: state.rootReducer.isFetching,
-    isAddingSmurf: state.rootReducer.addingSmurf,
-    error: state.rootReducer.error
+    smurfs: state.smurfs,
+    isFetchingSmurfs: state.fetchingSmurfs,
+    isFetching: state.isFetching,
+    isAddingSmurf: state.addingSmurf,
+    error: state.error
   };
 };
 
