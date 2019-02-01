@@ -1,6 +1,12 @@
-/*
-  Be sure to import in all of the action types from `../actions`
-*/
+import { FETCHING_SMURFS,
+  SMURFS_FETCHED,
+  ADDING_SMURF,
+  SMURF_ADDED,
+  UPDATING_SMURF,
+  SMURF_UPDATED,
+  DELETING_SMURF,
+  SMURF_DELETED
+  } from '../actions';
 
 const initialState = {
    smurfs: [],
@@ -21,7 +27,7 @@ const initialState = {
   There is no need for 'combineReducers' in this project.
   Components can then read your store as, `state` and not `state.fooReducer`.
 */
-export const rootReducer = (state = initialState, action) => {
+const rootReducer = (state = initialState, action) => {
   switch(action.type) {
       case FETCHING_SMURFS:
           return {
@@ -39,7 +45,7 @@ export const rootReducer = (state = initialState, action) => {
       case ADDING_SMURF:
           return {
               ...state,
-              friends: action.payload,
+              smurfs: action.payload,
               isSaving: false,
               error: ''
           };
@@ -58,7 +64,7 @@ export const rootReducer = (state = initialState, action) => {
       case SMURF_UPDATED:
           return {
               ...state,
-              friends: action.payload,
+              smurfs: action.payload,
               isUpdating: false,
               error: ''
           };
@@ -71,7 +77,7 @@ export const rootReducer = (state = initialState, action) => {
       case SMURF_DELETED:
           return {
               ...state,
-              friends: action.payload,
+              smurfs: action.payload,
               isDeleting: false,
               error: ''
           };
@@ -79,3 +85,5 @@ export const rootReducer = (state = initialState, action) => {
           return state;
       }
 }
+
+export default rootReducer;
