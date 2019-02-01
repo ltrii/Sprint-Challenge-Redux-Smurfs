@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Badge, Spinner } from 'reactstrap';
 import { connect } from 'react-redux';
 import { fetchingSmurfs, addingSmurf, deletingSmurf, updatingSmurf } from '../actions';
-
+import sLogo from '../img/smurfslogo.png';
 import AddSmurf from './Smurfs/AddSmurf';
 import Smurfs from './Smurfs/Smurfs';
 
@@ -34,7 +34,7 @@ class SmurfApp extends Component {
     return (
       <div>
         <div class="header">
-          <h1>Smurfs<Badge className="headBadge" pill href="https://redux.js.org/" color="secondary">Redux</Badge></h1><div>{(this.props.isFetching ? <Spinner color="success" /> : <p></p>)}
+          <div><img src={sLogo} /><Badge className="headBadge" pill href="https://redux.js.org/" color="secondary">Redux</Badge></div><div>{(this.props.isFetching ? <Spinner color="success" /> : <p></p>)}
           </div>
         </div>
         <AddSmurf {...this.props} />
